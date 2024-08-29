@@ -22,3 +22,24 @@ in terraform everything is a block:
 resouce "abc" "xyz"{
     block = {}
 }
+
+there is no concept of applying terraform on a single file. but we can create a directory and move requried .tf file there and execute tf commands.
+
+
+<!-- below is the example of the all the arguments that can be passed for an ec2-instance
+
+# resource "aws_instance" "example" {
+#   ami                   = "ami-0c55b159cbfafe1f0"  # Replace with your AMI ID
+#   instance_type         = "t2.micro"  # Replace with your instance type
+#   availability_zone    = "us-west-2a"
+#   subnet_id             = "subnet-0bb1c79de4EXAMPLE"  # Replace with your subnet ID
+#   associate_public_ip_address = true
+#   vpc_security_group_ids = ["sg-0a1b2c3d4e5f67890"]  # Replace with your security group ID
+#   key_name              = "my-key-pair"  # Replace with your key pair name
+#   user_data             = file("path/to/user_data_script.sh")
+#   ebs_optimized         = true
+#   monitoring            = true
+#   tags = {
+#     Name        = "MyEC2Instance"
+#     Environment = "Development"
+#   } -->
