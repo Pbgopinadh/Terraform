@@ -32,3 +32,4 @@ variable "env" {
 output "ha" {
   value = "the env is ${var.env}" 
 }
+
