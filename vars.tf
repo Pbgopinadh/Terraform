@@ -26,3 +26,9 @@ output "abc3" {
   value = "the rumour that you are a ${var.abc3["name"]} is ${var.abc3["bool"]}" 
 }
 
+variable "env" { 
+}
+
+output "ha" {
+  value = "the env is ${var.env}" 
+}
