@@ -1,20 +1,20 @@
-variable "abc" {
+variable "abc1" {
   default = 100
 }
 
-output "abc" {
-  value = var.abc
+output "abc1" {
+  value = var.abc1
 }
 
-variable "abc" {
+variable "abc2" {
   default = [100, "true" , true]
 }
 
-output "abc" {
-  value = "the rumour that you are a ${var.abc[0]} is ${var.abc[1]} "
+output "abc2" {
+  value = "the rumour that you are a ${var.abc2[0]} is ${var.abc2[1]} "
 }
 
-variable "abc" {
+variable "abc3" {
   default = {
     name = "gopi",
     bool = true ,
@@ -22,7 +22,7 @@ variable "abc" {
   }
 }
 
-output "abc" {
-  value = "the rumour that you are a ${var.abc["name"]} is ${var.abc[bool]}"
+output "abc3" {
+  value = "the rumour that you are a ${var.abc3["name"]} is ${var.abc3[bool]}"
 }
 
