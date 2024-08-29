@@ -17,12 +17,12 @@ output "abc2" {
 variable "abc3" {
   default = {
     name = "gopi",
-    bool = "true",
+    bool = true,
     str = "hola"
   }
 }
 
 output "abc3" {
-  value = "the rumour that you are a ${var.abc3["name"]} is ${var.abc3["bool"]}"
+  value = "the rumour that you are a ${var.abc3["name"]} is ${var.abc3["bool"]}" 
 }
 
