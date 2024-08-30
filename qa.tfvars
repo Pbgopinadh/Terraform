@@ -8,3 +8,17 @@ env = "qa"
 
 # terraform plan --var-file=qa.tfvars 
 # terraform apply --var-file=qa.tfvars 
+
+Anime = {
+    onepiece = {
+        hero = "luffy",
+        swordsman = "zoro",
+        crewsize = 10
+    }
+
+    ssins = {
+        hero = "meli"
+        joker = "clown"
+    }
+
+}

@@ -65,3 +65,22 @@ this will be considered if no --var-file is given.
 4. terraform.tfvars default variable value file - if above none is given.
 
 5. present in the script file.
+
+exception handling using lookup
+
+and map inside a map how to retreive the variable value.
+
+Anime = {
+
+    onepiece = {
+        hero = "luffy",
+        swordsman = "zoro",
+        crewsize = 10
+    }
+
+    7sins = {
+        hero = "meli"
+        joker = "clown"
+    }
+
+}

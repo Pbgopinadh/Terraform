@@ -33,3 +33,8 @@ output "env" {
   value = "the env is ${var.env}" 
 }
 
+variable "Anime" {}
+
+output "name" {
+  value = "Hey my fav anime is ${var.Anime[0]} and hero is ${var.Anime["ssins"]["hero"]}"
+}
