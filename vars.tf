@@ -29,7 +29,7 @@ output "abc3" {
 variable "env" { 
 }
 
-output "ha" {
+output "env" {
   value = "the env is ${var.env}" 
 }
 

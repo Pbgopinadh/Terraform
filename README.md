@@ -43,3 +43,10 @@ there is no concept of applying terraform on a single file. but we can create a 
 #     Name        = "MyEC2Instance"
 #     Environment = "Development"
 #   } -->
+
+terrafor.tfvars is the default varaible values file that terraform is going to take if we dont explicitly mention it. 
+
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+sudo yum -y install terraform
+
