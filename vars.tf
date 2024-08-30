@@ -36,5 +36,5 @@ output "env" {
 variable "Anime" {}
 
 output "name" {
-  value = "Hey my fav anime is ${var.Anime[0]} and hero is ${var.Anime["ssins"]["hero"]}"
+  value = "Hey my fav hero is ${var.Anime["onepiece"]["hero"]} and hero is ${var.Anime["ssins"]["hero"]}"
 }
