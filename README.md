@@ -50,3 +50,18 @@ sudo yum install -y yum-utils
 sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
 sudo yum -y install terraform
 
+order of precendence of variables: 
+
+1. --var-file if only one
+
+if multiple are given then  terraform plan -var="env=command_line" --var-file=dev.tfvars --var-file=qa.tfvars qa varibales will override dev variables if they are same.
+
+2. -var"var=value" 
+
+this will be considered if no --var-file is given.
+
+3. *.auto.tfvars
+
+4. terraform.tfvars default variable value file - if above none is given.
+
+5. present in the script file.
