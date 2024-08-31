@@ -11,6 +11,8 @@ resource "aws_instance" "instance" { # resouce is where we declare the type of i
   }
 }
 
+# count = length(var.counts) This will dynamically gets the no of instances to be created and Name = "${var.counts[count.index]}" this will create the instances with thier respective instances.
+
 variable "counts" {
 
   default = ["front","back","data"]

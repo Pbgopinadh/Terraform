@@ -94,3 +94,7 @@ functions in terraform -> functions cannot be created but can be consumed. we ca
 do you think the above are same in terraform -> no, even though the numbers are same terraform consider there are changes and it will destory and recreate in the modified order.
 
 so always make sure to check these things.
+
+when using lists order is very important.
+
+for loop = for each
