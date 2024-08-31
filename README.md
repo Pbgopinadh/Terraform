@@ -97,4 +97,5 @@ so always make sure to check these things.
 
 when using lists order is very important.
 
-for loop = for each
+for loop = for_each
+

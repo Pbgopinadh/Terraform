@@ -13,7 +13,7 @@ variable "components" {
 
   default = {
       frontend = {                                          # this is each.key 
-        instance = "t2.micro" ,                              # all the values o fthe keys are each.values.
+        instance = "t2.micro" ,                              # all the values of the keys are each.values.
         bu = 100,
       }
 
