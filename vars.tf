@@ -33,8 +33,9 @@ output "env" {
   value = "the env is ${var.env}" 
 }
 
-variable "Anime" {}
-
+variable "Anime" {} #present in *.auto.tfvars
 output "name" {
   value = "Hey my fav hero is ${var.Anime["onepiece"]["hero"]} and hero is ${var.Anime["ssins"]["hero"]}"
 }
+
+## LOOKUP function

@@ -84,3 +84,13 @@ Anime = {
     }
 
 }
+
+functions in terraform -> functions cannot be created but can be consumed. we cannot create our own functions.
+
+[1,2,3]
+
+[2,3,1]
+
+do you think the above are same in terraform -> no, even though the numbers are same terraform consider there are changes and it will destory and recreate in the modified order.
+
+so always make sure to check these things.

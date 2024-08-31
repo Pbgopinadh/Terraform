@@ -8,4 +8,9 @@ resource "aws_instance" "instance" { # resouce is where we declare the type of i
   }
 }
 
+resource "null_resource" "nully" {
+
+count = 3
+
+}
 
