@@ -5,7 +5,7 @@ resource "aws_instance" "instance" { # resouce is where we declare the type of i
   vpc_security_group_ids = ["sg-0f32ca9e850ae332e"] #so if a arugments can have multiple values then we should mention them like this
 
   tags = {
-    Name = "terrcreate" # name of the instance.
+    Name = "terrcreate-${count.index}" # name of the instance.
   }
 }
 
