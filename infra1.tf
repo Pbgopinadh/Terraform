@@ -1,4 +1,4 @@
-resource "aws_instance" "instance" { 
+resource "aws_instance" "instance1" { 
   for_each = var.components
   ami           = "ami-066784287e358dad1"
   instance_type = "${each.value["instance"]}" # these are arugments and this whole {.........} is called a block
