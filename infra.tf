@@ -5,7 +5,7 @@ resource "aws_instance" "instance" { # resouce is where we declare the type of i
   vpc_security_group_ids = ["sg-0f32ca9e850ae332e"] #so if a arugments can have multiple values then we should mention them like this
 
   tags = {
-    Name = var.counts[count.index] #using this we are dynamically creating the instances using the name
+    Name = "${var.counts[count.index]}" #using this we are dynamically creating the instances using the name
     # Name = "terrcreate-${count.index+1}" # name of the instance. #count is terraform function and this cound has a property known as index where its give the iteration number count.index = 0,1,2,3,4......
     # even arthimetic functions are supported.
   }
