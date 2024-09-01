@@ -119,3 +119,13 @@ Module is simple way to call one terraform script from one another similar to ro
 how to get the output from clhild to root
 
 syntax is module.(name of the module).(local name of the output)
+
+it is always better to have different files for diferent components of terraform.
+
+main.tf -> where the infra script is present
+variables.tf -> where variables and there values are present
+output.tf -> where the outputs are present. 
+
+by following we can have organised structure.
+
+the resource of the module should be a directory not a file.
