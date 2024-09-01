@@ -5,7 +5,7 @@
 #   vpc_security_group_ids = ["sg-0f32ca9e850ae332e"] #so if a arugments can have multiple values then we should mention them like this
 
 resource "aws_instance" "instance1" { 
-  for_each = var.components
+  for_each = var.arguments
   ami           = "ami-066784287e358dad1"
   instance_type = each.value["instance"]  
   vpc_security_group_ids = ["sg-0f32ca9e850ae332e"] 
@@ -14,6 +14,6 @@ resource "aws_instance" "instance1" {
   }
   }
 
-variable "components" {}
+variable "arguments" {}
 
 
