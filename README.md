@@ -115,3 +115,7 @@ when we run terraform init
 2. intiliase plugin providers.
 
 Module is simple way to call one terraform script from one another similar to roles in ansible.
+
+how to get the output from clhild to root
+
+syntax is module.(name of the module).(local name of the output)
