@@ -6,7 +6,6 @@ module "infra" {
 }
 
 variable "components" {}
-
 output "name" {
-  value = module.infra.main
+  value = module.infra.main #syntax is module.(name of the module).(local name of the output)
 }
