@@ -12,8 +12,6 @@
   }
 
 sg = ["sg-0f32ca9e850ae332e"]
-ami = "ami-0fcc78c828f981df2"
-zid = "Z03899023O0YIJPSBX9WU"
 
 # secutiry group, ami id and zoneid should not be hardcoded as we did
 

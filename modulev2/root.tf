@@ -3,7 +3,7 @@ module "infra1" {
   for_each = var.components
   source = "../moduletestv2"
   name = each.key
-  ami = var.ami
+  ami = data.aws_ami.ids.image_id
   zoneid = data.aws_route53_zone.selected.id
   instance = each.value["instance"]
   sgs = var.sg

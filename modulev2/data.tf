@@ -13,6 +13,6 @@ data "aws_ami" "ids" {
   most_recent      = true
   name_regex       = "DevOps-LabImage-RHEL9"
 }
-output "ami" {
-  value = data.aws_ami.ids
-}
+# output "ami" {
+#   value = data.aws_ami.ids.image_id
+# }
