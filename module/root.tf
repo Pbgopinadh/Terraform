@@ -6,3 +6,7 @@ module "infra" {
 }
 
 variable "components" {}
+
+output "name" {
+  value = module.infra.main
+}

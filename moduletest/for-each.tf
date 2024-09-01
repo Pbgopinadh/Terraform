@@ -16,4 +16,10 @@ resource "aws_instance" "instance1" {
 
 variable "arguments" {}
 
+output "main" {
+
+  value = "this is out to get output from the child module"
+  
+}
+
 
