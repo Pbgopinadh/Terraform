@@ -102,3 +102,8 @@ for loop = for_each
 try
 
 Modules in terraform for DRY methodlogy. we can create them unlike functions.
+
+modules in terraform are of 2 types:
+
+1. Root Module - the module from which we call another module.
+2. child/calling/backened module - the module which is called from anothe module.
