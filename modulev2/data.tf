@@ -9,11 +9,11 @@ data "aws_route53_zone" "selected" {
 #   value = data.aws_route53_zone.selected.id
 # }
 
-data "aws_ami" "instance" {
+data "aws_ami" "ids" {
   most_recent      = true
   name_regex       = "DevOps-LabImage-RHEL9"
   owners           = ["–"] 
 }
 output "ami" {
-  value = data.aws_ami.instance
+  value = data.aws_ami.ids
 }
