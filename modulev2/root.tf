@@ -1,7 +1,7 @@
 # this is the root module
-module "infra" {
+module "infra1" {
   for_each = var.components
-  source = "./moduletestv2"
+  source = "./Terraform/moduletestv2"
   name = each.key
   ami = var.ami
   zoneid = data.aws_route53_zone.selected.id
