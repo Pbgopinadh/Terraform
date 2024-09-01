@@ -5,7 +5,15 @@ data "aws_route53_zone" "selected" {
   private_zone = true
 }
 
-output "name" {
-  value = data.aws_route53_zone.selected.id
-}
+# output "name" {
+#   value = data.aws_route53_zone.selected.id
+# }
 
+data "aws_ami" "instance" {
+  most_recent      = true
+  name_regex       = "DevOps-LabImage-RHEL9"
+  owners           = ["–"] 
+}
+output "ami" {
+  value = data.aws_ami.instance
+}
