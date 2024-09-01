@@ -1,3 +1,3 @@
 module "infra" {
-  source = "/home/ec2-user/Terraform"
+  source = "/home/ec2-user/Terraform/moduletest"
 }
