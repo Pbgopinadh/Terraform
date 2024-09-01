@@ -6,5 +6,6 @@ data "aws_route53_zone" "selected" {
 }
 
 output "name" {
-  value = data.aws_route53_zone.selected
+  value = data.aws_route53_zone.selected.id
 }
+
