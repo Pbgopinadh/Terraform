@@ -100,3 +100,5 @@ when using lists order is very important.
 for loop = for_each
 
 try
+
+Modules in terraform for DRY methodlogy. we can create them unlike functions.
