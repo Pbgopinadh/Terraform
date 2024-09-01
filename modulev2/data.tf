@@ -12,7 +12,6 @@ data "aws_route53_zone" "selected" {
 data "aws_ami" "ids" {
   most_recent      = true
   name_regex       = "DevOps-LabImage-RHEL9"
-  owners           = ["–"] 
 }
 output "ami" {
   value = data.aws_ami.ids
