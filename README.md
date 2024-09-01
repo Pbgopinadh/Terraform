@@ -107,3 +107,11 @@ modules in terraform are of 2 types:
 
 1. Root Module - The path/folder from where we are calling actual module and also where we are running the terraform command.
 2. child/calling/backened module - the actual module which is called from anothe module.
+
+when we run terraform init
+
+1. it is going to intialize the backend.
+2. intiliase any modules.
+2. intiliase plugin providers.
+
+Module is simple way to call one terraform script from one another similar to roles in ansible.
