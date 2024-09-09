@@ -202,3 +202,24 @@ check on provisioners concept.
 
 we use the s3 bucket to store the statefile to refer as the backend.
 
+We can direclty mention the backend detials as a block like below
+
+terraform {
+  backend "s3" {
+    bucket = "mybucket"
+    key    = "path/to/my/key"
+    region = "us-east-1"
+  }
+}
+
+or we can use a option called  -backend-config=path where we can just give the below details in a path and give this path to the -backend-config parameter but we shouldn't forget to declare a empty backend terraform resource block in the configuration file. 
+
+    bucket = "demodevops1"
+    key    = "test/terraform.tfstate"
+    region = "us-east-1"
+
+terraform {
+  backend "s3" {
+  }
+}
+
