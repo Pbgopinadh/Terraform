@@ -12,7 +12,3 @@ module "infra1" {
 
 ## using the s3 baucket as backend to store the terraform state file.
 
-terraform {
-  backend "s3" {
-  }
-}
