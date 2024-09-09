@@ -223,3 +223,13 @@ terraform {
   }
 }
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+An important note: tf.state file in s3 will only be created if the terraform apply is executed and the resources are created.
+
+terraform providers and the backend will be same so it is better to mention these over the root level instead of folder level/path level hope you got the point.
+
+Another thing is it is better to declare empty for the S3 backend and then provide the parameters as -backend-config so that we can have multi-environment creation control and code can be DRY.
+
+
+

@@ -17,8 +17,3 @@ resource "aws_instance" "instance1" {
 #   ttl     = 10
 #   records = [aws_instance.instance1.private_ip] # this is how we get the attributes aws_instance(tyep of resource).instance1(resource name).private_ip (attribute)
 # }
-
-terraform {
-  backend "s3" {
-  }
-}
