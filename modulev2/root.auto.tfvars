@@ -15,3 +15,5 @@ sg = ["sg-0f32ca9e850ae332e"]
 
 # secutiry group, ami id and zoneid should not be hardcoded as we did
 
+
+
