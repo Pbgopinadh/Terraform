@@ -8,10 +8,10 @@ terraform {
   }
 }
 
-resource "null" "gopi" {
+resource "null_resource" "gopi" {
   
 }
 
-resource "null" "balu" {
+resource "null_resource" "balu" {
   
 }
