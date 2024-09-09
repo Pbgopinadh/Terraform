@@ -1,4 +1,6 @@
 # Terraform
+
+## AWS services used until now -> EC2, S3, Route53, VPC,2
 Terraform notes.
 
 doing changes manually is called Toil
@@ -129,3 +131,74 @@ output.tf -> where the outputs are present.
 by following we can have organised structure.
 
 the resource of the module should be a directory not a file.
+
+how to read the already exisiting resources in AWS using terraform
+
+using Data block we can filter and see all the properties of AWS existing resoures.
+
+in modulev2 and moduletestv2 we have used the data concept to retreive the ami-id based on the name and sg based on the sg name
+
+for AMIs the ami id may change but the name will not change.
+for sg we have filtered it by the security group name.
+
+depends_on: this depends_on is used to create dependecy between resources. lets say we have a requirement where. records are to be created after the instances are created. by default we cannot gurantee certain things.
+
+so we use depends_on to tell terraform before creating this you create depends_on infra and then proceed with current one
+
+depends_on is a list.
+
+in any resource block mention depends_on = [resourcetype.resourcename,resourcetype1.resourcename1]
+
+we dont use provisioners.
+
+whenever we run a Terraform plan command. Terraform is going to create a state file which is a single source of truth. 
+
+so whenever we run the terraform plan command the terraform is going to compare the current code and the statefile. there is also a backup of statefile as it is that importnat to the terraform.
+
+whenever there are any differences we call it drift. a drift in infrastrucutre.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+The Terraform state file is a critical component of Terraform's infrastructure-as-code management. It maintains the mapping between the resources in your Terraform configuration and the real-world infrastructure that Terraform manages. Here’s an overview of its purpose and how it works:
+
+Purpose of the Terraform State File
+Tracking Resources: The state file keeps track of the resources that Terraform manages and their current state. This allows Terraform to understand what has been created, updated, or deleted in your infrastructure.
+
+Performance: By storing resource data locally, the state file allows Terraform to efficiently determine the changes needed during operations like terraform plan and terraform apply without having to query the infrastructure provider repeatedly.
+
+Dependency Management: It helps Terraform manage dependencies between resources. For example, if one resource depends on another, the state file tracks these relationships so Terraform can apply changes in the correct order.
+
+Metadata Storage: The state file stores metadata about the resources, such as resource IDs and other attributes required for managing resources.
+
+State File Structure
+Location: By default, the state file is named terraform.tfstate and is stored in the root directory of your Terraform configuration. For remote state management, it can be stored in backends like AWS S3, Azure Storage, Google Cloud Storage, etc.
+
+Format: The state file is typically in JSON format, which allows it to be easily read and written by Terraform.
+
+Working with State Files
+Viewing State: You can use commands like terraform show to view the contents of the state file and understand the current state of your infrastructure.
+
+Modifying State: Occasionally, you may need to make manual changes to the state file. Terraform provides commands like terraform state rm, terraform state mv, and terraform state pull for managing and modifying the state.
+
+Remote State: For teams or more complex setups, using a remote state backend is recommended. This ensures state consistency, locking, and sharing among team members.
+
+State Locking: When using remote backends like AWS S3 with DynamoDB for locking, Terraform can prevent concurrent modifications by multiple users.
+
+what are the cases, i need to do manual changes 
+
+Modifying State: Occasionally, you may need to make manual changes to the state file. Terraform provides commands like terraform state rm, terraform state mv, and terraform state pull for managing and modifying the state.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+so when in a team, we have to make sure that everyone is using/refering to the same terraform state file. becuz if they are refering to their locally saved state file then obvs when we run terrafrom plan and apply even though the same infra is present. terraform will create same infra as it considers the locally saved statefile.
+
+so in order to aviod duplication/complications it is a best practice for all the users to refer to a single statefile.
+
+intializing backend is the first thing we see when running the terraform plan. backend is from which the state file is reffered or backed is where the terraform store its consistent data.
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+check on provisioners concept.
+
+we use the s3 bucket to store the statefile to refer as the backend.
+
