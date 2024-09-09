@@ -232,4 +232,4 @@ terraform providers and the backend will be same so it is better to mention thes
 Another thing is it is better to declare empty for the S3 backend and then provide the parameters as -backend-config so that we can have multi-environment creation control and code can be DRY.
 
 
-
+## Terraform commands only consider .tf files in the current directory and dont consider from subdirectories unless they are mentioned in modules.
