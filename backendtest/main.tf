@@ -7,3 +7,11 @@ terraform {
     
   }
 }
+
+resource "null" "gopi" {
+  
+}
+
+resource "null" "balu" {
+  
+}
