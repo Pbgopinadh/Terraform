@@ -1,3 +1,3 @@
 bucket = "demodevops1"
-key    = "dev/terraform.tfstate"
+key    = "instance/terraform.tfstate"
 region = "us-east-1"
