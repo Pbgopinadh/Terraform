@@ -1,15 +1,15 @@
 env = "dev"
 
-  components = {
-      frontend = {                                          # this is each.key 
-        instance = "t2.micro" ,                              # all the values of the keys are each.values.
-      }
-      backend = {
-        instance = "t2.micro" ,
-      }
-      database = {
-        instance = "t2.micro" ,
-      }
+components = {
+    frontend = {                                          # this is each.key 
+     instance = "t2.micro" ,                              # all the values of the keys are each.values.
+    }
+    backend = {
+     instance = "t2.micro" ,
+    }
+    database = {
+     instance = "t2.micro" ,
+    }
 
   }
 
