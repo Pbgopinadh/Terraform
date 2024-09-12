@@ -242,6 +242,26 @@ so there is no concept of inheritence for the backend in terraform. each directo
 
 we have multiple stages and for each stage we can have a seperate repo or branch of 1 repo. but seperate repo is suggested.
 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Generic Git Repository
+Arbitrary Git repositories can be used by prefixing the address with the special git:: prefix. After this prefix, any valid Git URL can be specified to select one of the protocols supported by Git.
+
+For example, to use HTTPS or SSH:
+
+module "vpc" {
+  source = "git::https://example.com/vpc.git"
+}
+
+module "storage" {
+  source = "git::ssh://username@example.com/storage.git"
+
+}
+check on the above more
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 
 
 
