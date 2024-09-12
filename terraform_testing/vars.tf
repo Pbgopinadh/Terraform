@@ -1,0 +1,2 @@
+variable "sg" {}
+variable "components" {}

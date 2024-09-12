@@ -237,3 +237,11 @@ Another thing is it is better to declare empty for the S3 backend and then provi
 th backend configuration is for that specific directory and not to all the terraform files.
 
 so there is no concept of inheritence for the backend in terraform. each directory will have its own backend. even though the parent dorectory is configured with another backedn.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+we have multiple stages and for each stage we can have a seperate repo or branch of 1 repo. but seperate repo is suggested.
+
+
+
+
