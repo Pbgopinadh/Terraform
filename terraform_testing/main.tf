@@ -5,4 +5,5 @@ module "terraform_testing" {
   ami = data.aws_ami.ids.image_id
   instance = each.value["instance"]
   sgs = var.sg
+  env=var.env
 }
