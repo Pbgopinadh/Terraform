@@ -52,6 +52,9 @@ sudo yum install -y yum-utils
 sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
 sudo yum -y install terraform
 
+ sudo growpart /dev/xvda 4
+ sudo lvextend -r -L +4G /dev/mapper/RootVG-homeVol
+
 order of precendence of variables: 
 
 1. --var-file if only one
@@ -266,3 +269,17 @@ whenever we destroy a resource the paramteric values of those resources becomes 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 see how we can use and run a AMI which is specific to our account ??
+
+how to create various infra using terraform ??
+
+concept of provisioners ??
+
+see how to run a user data in the terraform ??
+
+
+
+
+
+
+
+
