@@ -2,10 +2,10 @@ provider "aws" {
   region = "us-east-1"
 }
 
-resource "aws_security_group" "my_security_group" {
+resource "aws_security_group" "terraformtest" {
   name        = "terraformsg"                                # name of the security group.
   description = "My security group"                                # description.
-  vpc_id      = "	vpc-0848a04da02f353c5"                                      # VPC id in which the SG should be created.
+  vpc_id      = "vpc-0848a04da02f353c5"                                      # VPC id in which the SG should be created.
 
   ingress {                                       ## inbound rule 
     from_port   = 80                                                    
