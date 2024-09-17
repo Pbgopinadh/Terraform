@@ -276,6 +276,21 @@ concept of provisioners ??
 
 see how to run a user data in the terraform ??
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# hashi corp vault
+
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+sudo yum -y install vault
+
+seal: lock.
+
+unseal: unlock.
+
+we have to configure a file to start and access the UI version of vault.
+
+
 
 
 
