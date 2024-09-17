@@ -290,10 +290,134 @@ unseal: unlock.
 
 we have to configure a file to start and access the UI version of vault.
 
+---------------------------------------------------------------------------------------------------------------
+
+so a token should be present in the script which is used to access the vault for the stored secrets. so, we need to encrpyt the token with the secret management of the software we are using in this jenkins.
+
+in side we can multiple work spaces where each one is dedicated to a team for stroing their secrets.
+
+we have vault policies and othere access policies. usually vault is manged by LDAP so the access and secrets are specific to certian team.
+
+there are different type of secret engine where each engine is specific to a software/tech examplt kubernetes has its own secret engine and similar.
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+To retrieve secrets from HashiCorp Vault in Terraform, you typically use the vault provider to interact with Vault and fetch secrets. Here's a step-by-step guide on how to do this:
+
+1. Setup Vault Provider
+
+First, you need to configure the Vault provider in your Terraform configuration. This allows Terraform to communicate with Vault and access secrets.
+
+Example Configuration:
+hcl
+Copy code
+provider "vault" {
+  address = "https://vault.example.com"  # URL of your Vault server
+  token   = var.vault_token               # Vault token or other authentication method
+}
+You can use different methods for authentication, such as:
+
+Token Authentication: Set the token directly in the provider configuration.
+Environment Variables: Set VAULT_ADDR and VAULT_TOKEN environment variables.
+Other Authentication Methods: Configure methods like AWS IAM, Kubernetes, etc., as needed.
+
+2. Retrieve Secrets
+Once the provider is set up, you can use the vault_generic_secret data source to retrieve secrets from Vault.
+
+Example Usage:
+hcl
+Copy code
+data "vault_generic_secret" "example" {
+  path = "secret/my-secret"  # Path to the secret in Vault
+}
+
+output "my_secret_value" {
+  value = data.vault_generic_secret.example.data["my_key"]
+}
+Explanation:
+path: The path to the secret in Vault. This path corresponds to the secret engine and specific secret you want to retrieve.
+data: Contains the key-value pairs of the secret. You can access specific keys within the secret.
+3. Use the Retrieved Secret
+Once you’ve retrieved the secret, you can use it in other Terraform resources or outputs. For example:
+
+hcl
+Copy code
+resource "aws_instance" "example" {
+  ami           = "ami-123456"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = data.vault_generic_secret.example.data["instance_name"]
+  }
+}
+Additional Data Sources
+Depending on your use case and the type of secret engine in Vault, you might use other data sources:
+
+Key-Value (KV) Secrets Engine: vault_generic_secret
+Database Secrets Engine: vault_database_secret_backend_credentials
+PKI Secrets Engine: vault_pki_secret_backend_cert
+Example for a KV Secret Engine:
+If you’re using the KV (Key-Value) secrets engine, you might access it like this:
+
+hcl
+Copy code
+data "vault_kv_secret_v2" "example" {
+  path = "secret/data/my-secret"  # Use "secret/data" for KV v2 secrets engine
+}
+
+output "my_secret_value" {
+  value = data.vault_kv_secret_v2.example.data["my_key"]
+}
+Notes and Best Practices
+Secure Tokens: Be careful with how you manage and expose your Vault token. Avoid hardcoding sensitive values directly in your Terraform files.
+Environment Variables: For better security, consider using environment variables or secure methods to pass sensitive data.
+Access Policies: Ensure that the Vault token or credentials used have appropriate policies and permissions to access only the secrets required.
+By following these steps, you can securely retrieve and use
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\
+## vault usage in terraform
+### below is a example script on how to use a vault in terraform
+
+make sure to execute the export VAULT_SKIP_VERIFY=true before running the terraform commands. becuz if not, you will recieve certificate validation error.
 
 
+provider "aws" {}
+provider "vault" {
+    address = "https://54.160.38.144:8200"  # URL of your Vault server
+    token   = var.token
+}
 
+data "vault_generic_secret" "example" {
+  path = "kv/sshpwd"  # Path to the secret in Vault. dont need to include Secrets as per the below screen shot just ignore the Secrets and provide it as path from next.
+}
 
+![alt text](image.png)
+
+output "my_secret_value" {
+  value = data.vault_generic_secret.example.data["SSH_PWD"]
+  sensitive = true
+}
+
+variable "token" {
+    default = "value"
+}
+
+ resource "null_resource" "provisi" {
+
+  connection { # this connection is used to remotly connect using SSH protocal and with user name and password.
+    type     = "ssh"
+    user     = "ec2-user"
+    password = data.vault_generic_secret.example.data["SSH_PWD"]
+    host     = "54.160.38.144" # we dont need data.resources if its the resources that is going to be created with the current infra code.
+  }
+
+   provisioner "remote-exec" { # remote-exec is say that the below commands should run on the remote host.
+    inline = ["touch provsioner1.txt", "echo 'this is sampple1' > provsioner1.txt" ]
+  }
+    
+  }
+
+  ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
