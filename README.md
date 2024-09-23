@@ -420,5 +420,29 @@ variable "token" {
   ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
+When to Use Lifecycle Policies of terraform:
+
+Use create_before_destroy when you have resources that should not experience downtime.
+Use prevent_destroy for critical resources that need extra protection against accidental deletion.
+Use ignore_changes when external changes to resource attributes should not trigger Terraform updates.
+
+example:
+
+resource "aws_instance" "example" {
+  ami           = "ami-12345678"
+  instance_type = "t2.micro"
+
+  lifecycle {
+    create_before_destroy = true
+    prevent_destroy       = true
+    ignore_changes        = [tags]
+  }
+
+  tags = {
+    Name = "ExampleInstance"
+  }
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
